@@ -2,88 +2,128 @@ import React, { useState } from "react";
 import TripExpense from "./TripExpense";
 
 const Trip = () => {
-  const [tripData, setTripData] = useState({
-    placeName: "",
-    budget: "",
-  });
+    const [tripData, setTripData] = useState({
+        placeName: "",
+        budget: "",
+    });
 
-  const [displayField, setDisplayField] = useState(false);
+    const [displayField, setDisplayField] = useState(false);
 
-  const handleChange = ({ target: { name, value } }) => {
-    setTripData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+    const [reports, setReports] = useState([]);
 
-    if (!tripData.placeName || !tripData.budget) {
-      alert("Select a place name and budget");
-      return;
-    }
+    const handleChange = ({ target: { name, value } }) => {
+        setTripData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
+    };
 
-    console.log("Place:", tripData.placeName);
-    console.log("Budget:", tripData.budget);
+    const handleSubmit = (e) => {
+        e.preventDefault();
 
-    setDisplayField(true); // show next fields
-  };
+        if (!tripData.placeName || !tripData.budget) {
+            alert("Select a place name and budget");
+            return;
+        }
 
-  return (
-    <div className="min-h-[90VH] w-full flex flex-col gap-10 items-center justify-center bg-cover bg-center bg-no-repeat p-4">
-      
-      <h1>PERSONAL TRIP EXPENSE</h1>
+        setDisplayField(true);
+    };
 
-      <form
-        className="w-full max-w-sm p-8 bg-white/30 backdrop-blur-md border border-white/20 shadow-2xl rounded-2xl"
-        onSubmit={handleSubmit}
-      >
-        <div className="mb-4">
-          <label className="block text-gray-800 text-sm font-semibold mb-1">
-            Select Place
-          </label>
+    const handleFinalSubmit = (ReportData) => {
+        const finalData = {
+            ...tripData,
+            ...ReportData,
+        };
 
-          <select
-            className="w-full p-2 bg-white/50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-            name="placeName"
-            value={tripData.placeName}
-            onChange={handleChange}
-          >
-            <option value="">Where We Go!</option>
-            <option value="Mumbai">Mumbai</option>
-            <option value="Goa">Goa</option>
-            <option value="Manali">Manali</option>
-            <option value="Spiti Valley">Spiti Valley</option>
-            <option value="Kerala">Kerala</option>
-          </select>
+        setReports((prev) =>
+            [...prev, finalData]);
+
+
+        setDisplayField(false);
+        setTripData({ placeName: "", budget: "" });
+    };
+
+    return (
+        <div className="p-6 flex flex-col items-center gap-6">
+            <h1 className="text-2xl font-bold">PERSONAL TRIP EXPENSE</h1>
+            <form
+                className="w-full max-w-sm p-6 bg-gray-100 rounded-xl"
+                onSubmit={handleSubmit}
+            >
+                <select
+                    name="placeName"
+                    value={tripData.placeName}
+                    onChange={handleChange}
+                    className="w-full p-2 mb-3"
+                >
+                    <option value="">Where is Going</option>
+                    <option>Mumbai</option>
+                    <option>Goa</option>
+                    <option>Manali</option>
+                    <option>Spiti Valley</option>
+                    <option>Kerala</option>
+                </select>
+
+                <select
+                    name="budget"
+                    value={tripData.budget}
+                    onChange={handleChange}
+                    className="w-full p-2 mb-3"
+                >
+                    <option value="">Trip Budget</option>
+                    <option>5000</option>
+                    <option>10000</option>
+                    <option>25000</option>
+                    <option>35000</option>
+                    <option>55000</option>
+                </select>
+
+                <button className="bg-blue-500 text-white w-full p-2 rounded">
+                    Lets Go!
+                </button>
+            </form>
+
+            {displayField && (
+                <TripExpense TripInfo={tripData} onFinalSubmit={handleFinalSubmit} />
+            )}
+
+            {reports.length > 0 && (
+                <div className="w-full max-w-4xl mt-6">
+                    <h2 className="text-xl font-bold mb-3">Final Report</h2>
+
+                    <table className="w-full border border-gray-300">
+                        <thead className="bg-gray-200">
+                            <tr>
+                                <th>Place</th>
+                                <th>Budget</th>
+                                <th>Food</th>
+                                <th>Travel</th>
+                                <th>Room</th>
+                                <th>Remark</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+
+
+                        <tbody>
+                            {reports.map((items, index) => (
+                                <tr key={index} className="text-center border-t">
+                                    <td>{items.placeName}</td>
+                                    <td>{items.budget}</td>
+                                    <td>{items.Food}</td>
+                                    <td>{items.Travel}</td>
+                                    <td>{items.RoomRent}</td>
+                                    <td>{items.RemarkExpanse}</td>
+                                    <td>{items.TotalExpanse}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            )}
         </div>
-
-        <div className="mb-4">
-          <label className="block text-gray-800 text-sm font-semibold mb-1">
-            Trip Budget
-          </label>
-
-          <select
-            className="w-full p-2 bg-white/50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-            name="budget"
-            value={tripData.budget}
-            onChange={handleChange}
-          >
-            <option value="">Trip Budget</option>
-            <option value="5000">5000</option>
-            <option value="10000">10000</option>
-            <option value="25000">25000</option>
-            <option value="35000">35000</option>
-            <option value="55000">55000</option>
-          </select>
-        </div>
-
-        <button className="bg-blue-500 text-white w-full p-2 rounded-lg mt-2" type="submit" >Let's Go!</button>
-      </form>
-      {displayField && <TripExpense TripInfo={tripData} />}
-    </div>
-  );
+    );
 };
 
 export default Trip;
