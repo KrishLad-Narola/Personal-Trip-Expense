@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const TripExpense = () => {
 
     const [FiledData , setFieldData] = useState({
@@ -14,11 +16,13 @@ const TripExpense = () => {
 
         const handleSubmit = (e) => {
         e.preventDefault();
-        const { Food , Travel ,RoomRent } = FiledData;
+        // const { Food , Travel ,RoomRent } = FiledData;
 
-          console.log("FoodExpanse:", Food);
-          console.log("TravelExpanse", Travel);
-          console.log("RoomRentExpanse:",RoomRent);
+        //   console.log("FoodExpanse:", Food);
+        //   console.log("TravelExpanse", Travel);
+        //   console.log("RoomRentExpanse:",RoomRent);
+        console,log("Final Expanses:",FiledData);
+        alert("Expanse is save");
     };
 
   return (
@@ -59,6 +63,10 @@ const TripExpense = () => {
              onChange={handleChange}
              />
         </div>
+         <button onClick={handleSubmit}
+                className="bg-blue-500 text-white w-full p-2 rounded-lg mt-2">
+                Save Expanses
+                </button>
     </div>
   );
 };

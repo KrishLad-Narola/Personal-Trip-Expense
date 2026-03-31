@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import TripExpense from "./TripExpense";
 
 const Trip = () => {
     const [tripData, setTripData] = useState({
@@ -17,6 +18,10 @@ const Trip = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if(!tripData.placeName || !tripData.budget){
+            alert("select a placename and budget");
+            return;
+        }
         const { placeName, budget } = tripData;
 
         console.log("Place:", placeName);
@@ -26,6 +31,8 @@ const Trip = () => {
      
     return (
         <div className="min-h-[90VH] w-full flex flex-col gap-10 items-center justify-center bg-cover bg-center bg-no-repeat p-4">
+            
+            
             <h1>PERSONAL TRIP EXPANSE</h1>
 
             <form 
@@ -68,11 +75,17 @@ const Trip = () => {
                     </select>
                 </div>
 
-                <button 
+                <button onClick={handleSubmit}
                 className="bg-blue-500 text-white w-full p-2 rounded-lg mt-2"
                 type="submit">Let's Go!</button>
             </form>
+            
+            {!displayField &&
+                <TripExpense
+                TripInfo={tripData}/>
+            }
         </div>
+
     );
 };
 
