@@ -6,6 +6,8 @@ const Trip = () => {
         budget: "",
     });
 
+    const [displayField , setDisplayField] = useState(false);
+
     const handleChange = ({ target: { name, value } }) => {
         setTripData((prevData) => ({
             ...prevData,
@@ -18,9 +20,10 @@ const Trip = () => {
         const { placeName, budget } = tripData;
 
         console.log("Place:", placeName);
-        console.log("Budget", budget);
+        console.log("Budget:", budget);
+        setDisplayField(true);
     };
-
+     
     return (
         <div className="min-h-[90VH] w-full flex flex-col gap-10 items-center justify-center bg-cover bg-center bg-no-repeat p-4">
             <h1>PERSONAL TRIP EXPANSE</h1>
