@@ -22,15 +22,14 @@ const TripExpense = ({ TripInfo, onFinalSubmit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    onFinalSubmit(fieldData); 
+    onFinalSubmit(fieldData);
   };
 
   const fields = ["Food", "Travel", "RoomRent"];
 
   return (
-    <div className="w-full max-w-md p-4 bg-gray-100 rounded-xl">
-      <h2 className="text-lg font-bold mb-3">
+    <div className="bg-gray-50 p-4 rounded-xl border">
+      <h2 className="text-lg font-semibold mb-3">
         Expenses for {TripInfo.placeName}
       </h2>
 
@@ -43,7 +42,7 @@ const TripExpense = ({ TripInfo, onFinalSubmit }) => {
               placeholder={`${item} Expense`}
               value={fieldData[item]}
               onChange={handleChange}
-              className="w-full p-2 border rounded"
+              className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"
             />
           </div>
         ))}
@@ -52,42 +51,41 @@ const TripExpense = ({ TripInfo, onFinalSubmit }) => {
           <button
             type="button"
             onClick={() => setShowMore(true)}
-            className="bg-gray-400 text-white w-full p-2 mb-3"
-          >
-            Add Remark & Total
+            className="bg-gray-500 hover:bg-gray-600 text-white w-full p-2 mb-3 rounded-lg">
+             No Data is save ⛔
           </button>
         )}
 
         {showMore && (
-            <div>
           <div>
-            <label>RemarkExpanse</label>
-            <input
-              type="text"
-              name="RemarkExpense"
-              placeholder="Remark"
-              value={fieldData.RemarkExpense}
-              onChange={handleChange}
-              className="w-full p-2 border rounded mb-3"
-            />
+            <div>
+              <label className="text-sm font-medium">Remark Expanse</label>
+              <input
+                type="text"
+                name="RemarkExpense"
+                placeholder="Remark"
+                value={fieldData.RemarkExpense}
+                onChange={handleChange}
+                className="w-full p-3 border rounded-lg mb-3"
+              />
             </div>
 
-           <div>
-            <label>TotalExpanse</label>
-            <input
-              type="number"
-              name="TotalExpenses"
-              placeholder="Total"
-              value={fieldData.TotalExpenses}
-              onChange={handleChange}
-              className="w-full p-2 border rounded mb-3"
-            />
-          </div>
+            <div>
+              <label className="text-sm font-medium">Total Expanse</label>
+              <input
+                type="number"
+                name="TotalExpenses"
+                placeholder="Total"
+                value={fieldData.TotalExpenses}
+                onChange={handleChange}
+                className="w-full p-3 border rounded-lg mb-3"
+              />
+            </div>
           </div>
         )}
 
-        <button className="bg-blue-500 text-white w-full p-2 rounded">
-          Save Expense
+        <button className="bg-blue-500 hover:bg-blue-600 text-white w-full p-3 rounded-lg">
+          Save All Expense ✅
         </button>
       </form>
     </div>
