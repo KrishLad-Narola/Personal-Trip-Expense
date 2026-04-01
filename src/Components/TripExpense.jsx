@@ -48,12 +48,14 @@ const TripExpense = ({ TripInfo, onFinalSubmit }) => {
         ))}
 
         {!showMore && (
+          <div className="flex justify-end">
           <button
             type="button"
             onClick={() => setShowMore(true)}
-            className="bg-gray-500 hover:bg-gray-600 text-white w-full p-2 mb-3 rounded-lg">
-             No Data is save ⛔
+            className="bg-purple-500 hover:bg-pink-200 text-white w-fit p-2 mb-3 rounded-lg">
+             No Data is save 
           </button>
+          </div>
         )}
 
         {showMore && (
@@ -84,7 +86,7 @@ const TripExpense = ({ TripInfo, onFinalSubmit }) => {
           </div>
         )}
 
-        <button className="bg-blue-500 hover:bg-blue-600 text-white w-full p-3 rounded-lg">
+        <button className="bg-purple-400  hover:bg-pink-100 hover:text-purple-400 text-white w-full p-3 rounded-lg">
           Save All Expense ✅
         </button>
       </form>

@@ -50,7 +50,7 @@ const Trip = () => {
         
     
         <div className="bg-white p-6 rounded-2xl shadow-md">
-          <h2 className="text-xl font-semibold mb-4">Plan Your Trip</h2>
+          <h2 className="text-xl font-semibold mb-4">Where We Go!</h2>
 
           <form
            onSubmit={handleSubmit}>
@@ -82,8 +82,8 @@ const Trip = () => {
               <option>55000</option>
             </select>
 
-            <button className="bg-blue-500 hover:bg-blue-600 text-white w-full p-3 rounded-lg transition">
-              Let's Go 🚀
+            <button className="bg-purple-400  hover:bg-pink-100 hover:text-purple-400 text-white w-full p-3 rounded-lg transition">
+              Let's Go 
             </button>
           </form>
 
@@ -103,7 +103,7 @@ const Trip = () => {
 
           {reports.length === 0 ? (
             <p className="text-gray-500 text-center">
-              No data yet. Add a trip to see report.
+              No Data Is In Report ⛔
             </p>
           ) : (
             <div className="overflow-x-auto">
