@@ -87,8 +87,8 @@ const TripExpense = ({ TripInfo, onFinalSubmit }) => {
           </div>
         )}
 
-        <button className="bg-purple-400  hover:bg-pink-100 hover:text-purple-400 text-white w-full p-3 rounded-lg">
-          Save All Expense ✅
+        <button className="bg-purple-400  hover:bg-pink-100 hover:text-purple-400 text-white w-full p-3 rounded-lg transition">
+          Save All Expense 
         </button>
       </form>
     </div>
