@@ -65,7 +65,7 @@ const TripExpense = ({ TripInfo, onFinalSubmit }) => {
               <input
                 type="text"
                 name="RemarkExpense"
-                placeholder="Remark"
+                placeholder="RemarkExpense"
                 value={fieldData.RemarkExpense}
                 onChange={handleChange}
                 className="w-full p-3 border rounded-lg mb-3"
@@ -77,7 +77,7 @@ const TripExpense = ({ TripInfo, onFinalSubmit }) => {
               <input
                 type="number"
                 name="TotalExpenses"
-                placeholder="Total"
+                placeholder="TotalAmount"
                 value={fieldData.TotalExpenses}
                 onChange={handleChange}
                 className="w-full p-3 border rounded-lg mb-3"

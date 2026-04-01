@@ -41,7 +41,7 @@ const Trip = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
+    <div className="min-h-screen  bg-gray-100 p-6">
       <h1 className="text-3xl font-bold text-center mb-6">
         PERSONAL TRIP EXPENSE
       </h1>
@@ -50,7 +50,7 @@ const Trip = () => {
         
     
         <div className="bg-white p-6 rounded-2xl shadow-md">
-          <h2 className="text-xl font-semibold mb-4">Where We Go!</h2>
+          <h2 className="text-xl text-center font-semibold mb-4">Where We Go!</h2>
 
           <form
            onSubmit={handleSubmit}>
@@ -99,7 +99,7 @@ const Trip = () => {
 
        
         <div className="bg-white p-6 rounded-2xl shadow-md">
-          <h2 className="text-xl font-semibold mb-4">Final Report</h2>
+          <h2 className="text-xl  text-center font-semibold mb-4">Final Report of Budget! </h2>
 
           {reports.length === 0 ? (
             <p className="text-gray-500 text-center">
