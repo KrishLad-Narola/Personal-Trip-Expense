@@ -7,6 +7,7 @@ const TripExpense = ({ TripInfo, onFinalSubmit }) => {
     Travel: "",
     RoomRent: "",
     RemarkExpense: "",
+    RemarkExpanseAmount:"",
     TotalExpenses: "",
   });
 
@@ -68,6 +69,18 @@ const TripExpense = ({ TripInfo, onFinalSubmit }) => {
                 name="RemarkExpense"
                 placeholder="RemarkExpense"
                 value={fieldData.RemarkExpense}
+                onChange={handleChange}
+                className="w-full p-3 border rounded-lg mb-3"
+              />
+            </div>
+
+            <div>
+              <label className="text-sm font-medium">Remark Expanse Amount</label>
+              <input
+                type="text"
+                name="RemarkExpanseAmount"
+                placeholder="RemarkExpanseAmount"
+                value={fieldData.RemarkExpanseAmount}
                 onChange={handleChange}
                 className="w-full p-3 border rounded-lg mb-3"
               />

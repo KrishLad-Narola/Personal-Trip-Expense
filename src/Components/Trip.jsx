@@ -64,8 +64,14 @@ const Trip = () => {
               <option>Mumbai</option>
               <option>Goa</option>
               <option>Manali</option>
-              <option>Spiti Valley</option>
+              <option>Spiti valley</option>
               <option>Kerala</option>
+              <option>Jamu and Kashmir</option>
+              <option>Ladakh</option>
+              <option>Himachal Pradesh</option>
+              <option>Dehradun</option>
+              <option>Meghalaya</option>
+              <option>Vally of Flowers</option>
             </select>
 
             <select
@@ -77,8 +83,13 @@ const Trip = () => {
               <option value="">Select Budget</option>
               <option>5000</option>
               <option>10000</option>
+              <option>15000</option>
+              <option>20000</option>
               <option>25000</option>
+              <option>30000</option>
               <option>35000</option>
+              <option>45000</option>
+              <option>50000</option>
               <option>55000</option>
             </select>
 
