@@ -103,7 +103,7 @@ const Trip = () => {
 
           {reports.length === 0 ? (
             <p className="text-gray-500 text-center">
-              No Data Is In Report ⛔
+              No Data Is In Report 
             </p>
           ) : (
             <div className="overflow-x-auto">
