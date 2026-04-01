@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FaPlus } from "react-icons/fa";
 
 const TripExpense = ({ TripInfo, onFinalSubmit }) => {
   const [fieldData, setFieldData] = useState({
@@ -52,8 +53,8 @@ const TripExpense = ({ TripInfo, onFinalSubmit }) => {
           <button
             type="button"
             onClick={() => setShowMore(true)}
-            className="bg-purple-400 hover:bg-pink-200 hover:text-purple-400 text-white w-fit p-2 mb-3 rounded-lg">
-             Hide Expanse
+            className=" flex items-center gap-2 bg-purple-400 hover:bg-pink-200 hover:text-purple-400 text-white w-fit p-2 mb-3 rounded-lg">
+            <FaPlus /> <span>Hide Expanse </span>
           </button>
           </div>
         )}
