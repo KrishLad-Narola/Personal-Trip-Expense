@@ -52,8 +52,8 @@ const TripExpense = ({ TripInfo, onFinalSubmit }) => {
           <button
             type="button"
             onClick={() => setShowMore(true)}
-            className="bg-purple-500 hover:bg-pink-200 text-white w-fit p-2 mb-3 rounded-lg">
-             No Data is save 
+            className="bg-purple-400 hover:bg-pink-200 hover:text-purple-400 text-white w-fit p-2 mb-3 rounded-lg">
+             Hide Expanse
           </button>
           </div>
         )}
